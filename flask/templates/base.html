@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Twitter Sentimental Analysis</title>
+<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"> 
+	<style>
+.bg-dark {
+		background-color: #42678c!important;
+	}
+	#result {
+		color: #0a1c4ed1;
+	}
+    #text{
+        position:relative;
+        right:-95px;
+        text-shadow:black 2px 2px 4px;
+    }
+    #textbox{
+        margin-left:60px;
+    }
+    #btn{
+        
+        position:relative;
+        top:30px;
+        right:5px;
+    }
+    #predict{
+        position:relative;
+        right:110px;
+        top:10px;
+        text-shadow: black 1px 1px 3px;
+        font-weight: bold;
+        color:rgb(236, 247, 92);
+        font-size:30px;
+    }
+    #nav-img{
+        float:left;
+        height:30px;
+        width:30px;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+         <img id="nav-img" src="{{ url_for('static', filename='ClipartKey_334318.png') }}">
+        <div class="container">
+            <a class="navbar-brand" href="#">TWITTER SENTIMENT ANALYSIS</a>
+        </div>
+    </nav>
+<div class="main">   
+<div id="information">
+ <img src="{{ url_for('static', filename='twitter1.png') }}" class="image">
+<div id="circle">
+<form action="{{url_for('y_predict')}}" method="post">
+<table align="left">
+<tr>
+<td><label for="Text"><p id="text" style="color:deeppink;font-size:40px;"><b>Enter Your Tweet</b></p></label></td>
+</tr>
+<br>
+<br>
+<br>
+<br>
+<tr>
+<td><input id="textbox" type="text" name="Text" placeholder="Enter your Tweet" required="required"  style="font-size:20px;height:40;width:400px"/></td>
+</tr>
+
+<tr>
+<td  colspan="5" align="center"><button id="btn" type="submit" style="font-size:20px;" button style="width: 75px; height: 40px;" class="btn btn-success">Predict</button></td>
+<tr>
+</table>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <p id="predict" align="center" style="color:rgb(253, 249, 8);font-size:30px;">{{ Prediction}}</p>
+
+</div>
+</div>
+</div>
+</body>
+</html>
+
